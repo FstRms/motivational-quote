@@ -6,7 +6,7 @@ Python script to send a random motivational quote via email.
 ### Prerequisites
 
 - Python 3.9+
-- [Poetry 0.12+](https://python-poetry.org/docs/#installation)
+- [Poetry 1.0.0+](https://python-poetry.org/docs/#installation)
 - A Gmail account
 - Emails to recieve the quote.
 
