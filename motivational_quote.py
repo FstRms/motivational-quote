@@ -3,11 +3,13 @@ import os
 import sys
 import smtplib
 import random
+from datetime import datetime
 from dotenv import load_dotenv
 
 load_dotenv()
 ORIGIN_EMAIL = os.environ.get("ORIGIN_EMAIL")
 MY_PASSW = os.environ.get("EMAIL_PASSWORD")
+LOG_PATH = os.environ.get("LOG_PATH")
 
 with open("email_list.txt", "r") as emails:
     receivers = emails.readlines()
@@ -30,3 +32,5 @@ with smtplib.SMTP("smtp.gmail.com", port=587) as connection:
     connection.sendmail(
         from_addr=ORIGIN_EMAIL, to_addrs=receivers, msg=your_quote.encode("utf-8")
     )
+with open(f"{LOG_PATH}", "a") as logger:
+    logger.write(f"Script executed at: {datetime.now()}")
